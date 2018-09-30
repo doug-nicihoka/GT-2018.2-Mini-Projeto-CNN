@@ -76,11 +76,11 @@ class conv_layer:
     
     # Método de multiplicação matricial, usando img2col
     def conv_dot(self):
-        W_row = np.reshape(self.filters, (self.num_filters, self.filter_size**2)) # (3, 9)
-        output_dot = np.zeros((self.num_inputs, self.filter_size, self.output_size**2)) # (60000, 3, 100)
+        W_row = np.reshape(self.filters, (self.num_filters, self.filter_size**2))
+        output_dot = np.zeros((self.num_inputs, self.filter_size, self.output_size**2))
         
-        for i in range(self.num_inputs): # 60000
-            output_dot[i] = np.dot(W_row, self.img2col(self.inputs[i])) # (3, 9) x (9, 100) = (3, 100)
+        for i in range(self.num_inputs):
+            output_dot[i] = np.dot(W_row, self.img2col(self.inputs[i]))
         
         # Retornando resultado com suas dimensoões originais
-        return np.reshape(output_dot, (self.num_inputs*self.num_filters, self.output_size, self.output_size)) # (18000, 10, 10)
+        return np.reshape(output_dot, (self.num_inputs*self.num_filters, self.output_size, self.output_size))
