@@ -1,21 +1,11 @@
 import numpy as np
-import mnist
-import time
-
-# Baixa o banco de dados. Rode apenas se não possuir o arquivo "mnist.pkl"
-# mnist.init()
-
-# Carregando os dados
-x_train, t_train, x_test, t_test = mnist.load()
-
-# Transformando dataset em um vetor de imagens 28x28
-X = np.reshape(x_train, (60000,28, 28))
 
 """ 
  *	Camada de convolução:
  *		Possui duas funções que realizam a convolução de imagens com filtros
  * 		(funções "conv_full" e "conv_dot"), sendo que a última possui melhor performance.
 """
+
 class conv_layer:
     def __init__(self, inputs, filters, padding, stride):
         self.inputs = inputs
